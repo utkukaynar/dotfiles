@@ -1,5 +1,11 @@
-function rinstall () {
-  ruby-install --install-dir "$HOME/.rbenv/versions/$1" ruby "$1"
-  gem install bundler --conservative
-  bundle
+rinstall () {
+  if command -v ruby-install >/dev/null; then
+    ruby-install --install-dir "$(rbenv root)/versions/$1" ruby "$1" && \
+      gem install bundler --conservative
+
+    [ -f Gemfile ] && bundle
+  else
+    echo "You need to install ruby-install first."
+    return 1
+  fi;
 }
