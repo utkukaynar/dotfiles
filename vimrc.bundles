@@ -1,0 +1,11 @@
+if &compatible
+  set nocompatible
+end
+
+call plug#begin('~/.vim/bundle')
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

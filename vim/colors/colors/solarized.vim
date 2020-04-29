@@ -1,0 +1,1 @@
+/Users/utkukaynar/.dotfiles/vim/colors/solarized.vim
